@@ -11,7 +11,7 @@ namespace CollegeAdmission
 {
 
 
-    public partial class WebForm1
+    public partial class HomePage1
     {
 
         /// <summary>
