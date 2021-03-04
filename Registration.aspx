@@ -231,7 +231,7 @@
                 </tr>
             <tr>
                 <td class="style20" rowspan="2">
-                    BirthDate :-</td>
+                    BirthDate :</td>
                 <td class="style20">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                     Month&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
