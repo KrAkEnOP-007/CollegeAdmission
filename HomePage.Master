@@ -39,7 +39,7 @@
     </style>
 </head>
 <body>
-    <form id="form2" runat="server">
+    
     <table class="style1">
         <tr>
             <td style="background-color: #CCCCFF" class="style5">
@@ -85,6 +85,6 @@
             </td>
         </tr>
     </table>
-    </form>
+
 </body>
 </html>
