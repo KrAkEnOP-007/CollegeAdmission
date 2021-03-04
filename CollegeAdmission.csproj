@@ -93,11 +93,12 @@
     <Content Include="Images\userlogin.bmp" />
     <Content Include="Images\Water lilies.jpg" />
     <Content Include="Images\Winter.jpg" />
+    <Content Include="Registration.aspx" />
     <Content Include="Web.config" />
     <Content Include="HomePage.aspx" />
     <Content Include="ContactUs.aspx" />
     <Content Include="AboutUs.aspx" />
-    <Content Include="Registration.aspx" />
+    <Content Include="RegistrationDemo.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HomePage.Master.cs">
@@ -135,6 +136,13 @@
     </Compile>
     <Compile Include="Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrationDemo.aspx.cs">
+      <DependentUpon>RegistrationDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrationDemo.aspx.designer.cs">
+      <DependentUpon>RegistrationDemo.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
