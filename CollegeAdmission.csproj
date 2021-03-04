@@ -67,10 +67,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\CollegeDB.mdf" />
-    <Content Include="App_Data\CollegeDB_log.ldf">
-      <DependentUpon>CollegeDB.mdf</DependentUpon>
-    </Content>
     <Content Include="Images\111.jpg" />
     <Content Include="Images\13.jpg" />
     <Content Include="Images\ABC.jpg" />
@@ -151,6 +147,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
