@@ -13,5 +13,10 @@ namespace CollegeAdmission
         {
 
         }
+
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+         //  RegularExpressionValidator val = new RegularExpressionValidator
+        }
     }
 }

@@ -94,11 +94,13 @@
     <Content Include="Images\userlogin.bmp" />
     <Content Include="Images\Water lilies.jpg" />
     <Content Include="Images\Winter.jpg" />
+    <Content Include="Extras\Login.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="Web.config" />
     <Content Include="ContactUs.aspx" />
     <Content Include="AboutUs.aspx" />
-    <Content Include="RegistrationDemo.aspx" />
+    <Content Include="Extras\RegistrationDemo.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HomePage.aspx.cs">
@@ -114,6 +116,20 @@
     </Compile>
     <Compile Include="HomePage.Master.designer.cs">
       <DependentUpon>HomePage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Extras\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Extras\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ContactUs.aspx.cs">
@@ -137,11 +153,11 @@
     <Compile Include="Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RegistrationDemo.aspx.cs">
+    <Compile Include="Extras\RegistrationDemo.aspx.cs">
       <DependentUpon>RegistrationDemo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RegistrationDemo.aspx.designer.cs">
+    <Compile Include="Extras\RegistrationDemo.aspx.designer.cs">
       <DependentUpon>RegistrationDemo.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
