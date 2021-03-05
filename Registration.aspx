@@ -6,6 +6,9 @@
     <style>
         td {
             height: 40px;
+            text-align: center;
+        
+            padding: 10px;
         }
 
         .auto-style1 {
@@ -21,19 +24,21 @@
         }
         table{
             margin:5px;
+            border-collapse: separate;
+            border-spacing: 0 15px;
           
         }
         label{
             color:black;
         }
-       
+     
         </style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    
-        <table style="width:80%; align-self:center; border: 2px solid blue; background-color:black; color:aqua; box-sizing: border-box; margin-left:50px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:20px;">
-            <thead ><tr"><td style="height:120px; text-align:center; align-items:center; justify-content:center; font-size:50px ;" colspan="3" class="auto-style1">Registration form</td></tr></thead>
+        <table style="width:80%; align-self:center; border: 2px solid blue; background-color:black; color:aqua; box-sizing: content-box; margin-left:50px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:20px;">
+            <thead ><tr><td style="height:120px; text-align:center; align-items:center; justify-content:center; font-size:50px ;" colspan="3" class="auto-style1">Registration form</td></tr></thead>
             <tbody>
                 <tr>
                     <td>NAME :-<br />
@@ -42,10 +47,12 @@
                         <div class="col">
                             <div class="row">
                                 <div class="col">
-                                    <asp:TextBox ID="FirstName" runat="server" type="text" class="form-control" placeholder="First name" aria-label="First name" />
+                                    <asp:TextBox ID="FirstName" runat="server" type="text" CssClass="form-control bg-dark text-white border-3" placeholder="First name" aria-label="First name" MaxLength="20" />
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Enter Name*" ControlToValidate="FirstName"></asp:RequiredFieldValidator>
                                 </div>
                                 <div class="col">
-                                    <asp:TextBox ID="LastName" runat="server" type="text" CssClass="form-control" placeholder="Last name" aria-label="Last name" />
+                                    <asp:TextBox ID="LastName" runat="server" type="text" CssClass="form-control bg-dark text-white border-3" placeholder="Last name" aria-label="Last name" MaxLength="15" />
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Enter Last Name*" ControlToValidate="LastName"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                         </div>
@@ -79,7 +86,7 @@
                 <tr>
                     <td class="auto-style2">MOBILE NO. :-</td>
                     <td>
-                        <asp:TextBox ID="MobileText" runat="server"  CssClass="form-control"  type="number" placeholder="Enter Phone No." aria-label="Enter Phone No." style="width: 32%" />
+                        <asp:TextBox ID="MobileText" runat="server"  CssClass="form-control bg-dark text-white border-3"  type="number" placeholder="Enter Phone No." aria-label="Enter Phone No." style="width: 32%" MaxLength="10" TextMode="Phone" />
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="MobileText" ErrorMessage="Enter Valid Phone No.!" ValidationExpression="^(\+?\d{1,4}[\s-])?(?!0+\s+,?$)\d{10}\s*,?$" ForeColor="#FFCCFF"></asp:RegularExpressionValidator>
                     </td>
                     <td></td>
@@ -89,19 +96,26 @@
                     <td class="auto-style2">EMAIL ID :-</td>
                     <td>
                         <div class="form-floating mb-3">
-                            <asp:TextBox ID="emailText" runat="server" type="email" CssClass="form-control"  placeholder="name@example.com"/>
-                            <label for="floatingInput">Email address</label>
+                            <asp:TextBox ID="emailText" runat="server" type="email" CssClass="form-control bg-dark text-white border-3"  placeholder="name@example.com" MaxLength="30"/>
+                            <label class="text-white" for="floatingInput">Email address</label>
                         </div>
                     </td>
                     <td></td>
                 </tr>
 
                 <tr>
+                    <td colspan="3">
+                        <asp:Label ID="Label1" runat="server" Text="Address Information"></asp:Label>
+                    </td>
+                </tr>
+
+                <tr>
                     <td class="auto-style2">ADDRESS :-</td>
                     <td>
                         <div class="form-floating">
-                            <asp:TextBox ID="AddressText" runat="server" class="form-control" placeholder="ENTER YOUR ADDRESS HERE" ></asp:TextBox>
-                            <label for="floatingTextarea">ADDRESS</label>
+                            <asp:TextBox ID="AddressText" runat="server" class="form-control bg-dark text-white border-3" placeholder="ENTER YOUR ADDRESS HERE" MaxLength="100" ></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Enter Address" ControlToValidate="AddressText"></asp:RequiredFieldValidator>
+                            <label class="text-white" for="floatingTextarea">ADDRESS</label>
                         </div>
                     </td>
                     <td></td>
@@ -111,9 +125,10 @@
                     <td class="auto-style2">CITY :-</td>
                     <td>
                         <div class="form-floating mb-3">
-                            <asp:TextBox runat="server" type="text" CssClass="form-control" ID="FloatingCity" placeholder="city"/>
+                            <asp:TextBox runat="server" type="text" CssClass="form-control bg-dark text-white border-3" ID="FloatingCity" placeholder="city" MaxLength="15"/>                   
                             
-                            <label for="floatingInput">City</label>
+                            <label class="text-white" for="floatingInput">City</label>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Enter City" ControlToValidate="FloatingCity"></asp:RequiredFieldValidator>
                         </div>
                     </td>
                     <td></td>
@@ -123,24 +138,86 @@
                     <td class="auto-style2">PINCODE :-</td>
                     <td>
                         <div class="form-floating">
-                            <asp:TextBox  runat="server" type="number" Width="120px" class="form-control" ID="FloatingPincode" placeholder="city"/>
-                            <label for="floatingInput">Pincode</label>
+                            <asp:TextBox  runat="server" type="number" Width="120px" class="form-control bg-dark text-white border-3 " ID="FloatingPincode" placeholder="city" MaxLength="6" TextMode="Number"/>
+                            <label class="text-white" for="floatingInput">Pincode</label>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Enter Valid Pincode" ValidationExpression="^\d{3}\s?\d{3}$" ControlToValidate="FloatingPincode"></asp:RegularExpressionValidator>
                         </div>
                     </td>
                     <td></td>
                 </tr>
 
                 <tr>
-                    <td class="auto-style2"></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-
-                <tr>
                     <td colspan="3">
-                        <asp:Button ID="SubmitBtn" runat="server" Text="Submit" />
+                        <asp:Label ID="Label2" runat="server" Text="Other Informations"></asp:Label>
                     </td>
                 </tr>
+                <tr>
+                    <td>Father&#39;s Name :-</td>
+                    <td> <asp:TextBox ID="FatherName" runat="server" type="text" CssClass="form-control bg-dark text-white border-3" placeholder="father name" aria-label="Father name" MaxLength="30" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Enter Father's Name" ControlToValidate="FatherName"></asp:RequiredFieldValidator>
+                    </td>
+                    
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Father&#39;s Occupation :-</td>
+                    <td><asp:TextBox ID="FatherOcc" runat="server" type="text" CssClass="form-control bg-dark text-white border-3" placeholder="father Occupation" aria-label="Father Occupation" MaxLength="20" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Enter Father's Occupation" ControlToValidate="FatherOcc"></asp:RequiredFieldValidator>
+                    </td>
+
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Category ;-</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <asp:Label ID="Label3" runat="server" Text="Education Qualifications"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>SSC Marks-Total : -</td>
+                    <td><asp:TextBox ID="SSCMarks" runat="server" type="number" CssClass="form-control bg-dark text-white border-3" placeholder="SSC marks" aria-label="ssc marks" MaxLength="3" TextMode="Number" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Enter SSC Marks*" ControlToValidate="SSCMarks"></asp:RequiredFieldValidator>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Attempts :-</td>
+                    <td><asp:TextBox ID="AttemptsTxtSSc" runat="server" type="text" CssClass="form-control bg-dark text-white border-3" placeholder="Attempts" aria-label="Attempts" OnTextChanged="AttemptsTxtSSc_TextChanged" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="Enter Number Of Attempts" ControlToValidate="AttemptsTxtSSc"></asp:RequiredFieldValidator>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>HSC Marks-Total : -</td>
+                    <td><asp:TextBox ID="HSCMarksTxt" runat="server" type="text" CssClass="form-control bg-dark text-white border-3" placeholder="HSC marks" aria-label="hsc marks" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="Enter HSC Marks*" ControlToValidate="HSCMarksTxt"></asp:RequiredFieldValidator>
+                     </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Attempts :-</td>
+                    <td><asp:TextBox ID="AttemptsTxtHsc" runat="server" type="text" CssClass="form-control bg-dark text-white border-3" placeholder="Attempts" aria-label="Attempts" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="Enter HSC Attempts*" ControlToValidate="AttemptsTxtHsc"></asp:RequiredFieldValidator>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Percentage( % ) :-</td>
+                    <td><asp:TextBox ID="PercentageTxt" runat="server" type="text" CssClass="form-control bg-dark text-white border-3" placeholder="Percentage" aria-label="Per" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="Enter Percentage" ControlToValidate="PercentageTxt"></asp:RequiredFieldValidator>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <asp:Button ID="SubmitBtn" runat="server" CssClass="btn btn-outline-primary" Text="Submit" />
+                    </td>
+                </tr>
+                
             </tbody>
         </table>
 

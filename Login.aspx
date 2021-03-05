@@ -7,15 +7,16 @@
             align-content:center;
             justify-content:center;
             background-color:rgba(0, 0, 0, 0.8);
-            box-shadow:5px 5px black;
+            box-shadow:8px 8px black;
             height:500px; 
             width: 400px;
             margin:auto;
+            margin-bottom:20px;
             padding:25px;
         }
         #LoginLbl{
           
-            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             width: 160px;
             margin:auto;
             border:2px solid blue;
@@ -23,7 +24,7 @@
         .loginLbl{
             
             position:relative;
-            color:chocolate;
+            color:cyan;
             font-size:45px;
             font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             left:120px;
@@ -32,7 +33,7 @@
             position:relative;
             width:70px;
             top:70px;
-            margin:auto;
+            left:30%;
             
         }
     </style>
@@ -41,14 +42,14 @@
    <div class="loginBox">
             <asp:Label runat="server" CssClass="loginLbl" ID="LoginLbl">Login</asp:Label>
            <div class="form-floating mb-3">
-               <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"/>
-               <label for="floatingInput">Email address</label>
+               <input type="email" class="form-control bg-dark text-white border-3" id="floatingInput" placeholder="name@example.com"/>
+               <label class="text-white" for="floatingInput">Email address</label>
            </div>
            <div class="form-floating">
-               <input type="password" class="form-control" id="floatingPassword" placeholder="Password"/>
-               <label for="floatingPassword">Password</label>
+               <input type="password" class="form-control bg-dark text-white border-3" id="floatingPassword" placeholder="Password"/>
+               <label class="text-white" for="floatingPassword">Password</label>
            </div>
-       <asp:Button runat="server" ID ="LoginBtn" CssClass="btn btn-primary BtnLogin" Text="Submit" />
+       <asp:Button runat="server" ID ="LoginBtn" CssClass="btn btn-secondary BtnLogin" Text="Submit"  Width="100px"/>
        
       
    </div>

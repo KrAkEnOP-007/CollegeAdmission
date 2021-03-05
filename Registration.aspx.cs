@@ -18,5 +18,10 @@ namespace CollegeAdmission
         {
          //  RegularExpressionValidator val = new RegularExpressionValidator
         }
+
+        protected void AttemptsTxtSSc_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
