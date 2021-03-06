@@ -67,13 +67,17 @@
                     <td class="auto-style2">GENDER :-</td>
                     <td>
                         <asp:RadioButtonList ID="RBgender" runat="server" Height="29px"
-                            Style="background-color:whitesmoke; margin-left: 0px; margin-right: 0px" Width="173px"
+                            Style="background-color:whitesmoke;  margin-left: 0px; margin-right: 0px" Width="173px"
                             RepeatDirection="Horizontal">
                             <asp:ListItem>Male</asp:ListItem>
                             <asp:ListItem>Female</asp:ListItem>
                         </asp:RadioButtonList>
+
                     </td>
-                    <td></td>
+                    <td>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="Select Gender*" ControlToValidate="RBgender"></asp:RequiredFieldValidator>
+
+                    </td>
                 </tr>
 
                 <tr>
@@ -169,8 +173,17 @@
                 </tr>
                 <tr>
                     <td>Category ;-</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td>
+                        <asp:RadioButtonList ID="CategoryList" runat="server" BackColor="White" ForeColor="#660066" RepeatDirection="Horizontal">
+                            <asp:ListItem>SC</asp:ListItem>
+                            <asp:ListItem>ST</asp:ListItem>
+                            <asp:ListItem>OBC</asp:ListItem>
+                            <asp:ListItem>OPEN</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="CategoryList" ErrorMessage="Select Category"></asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="3">
