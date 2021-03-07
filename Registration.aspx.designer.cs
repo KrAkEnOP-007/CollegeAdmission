@@ -78,6 +78,15 @@ namespace CollegeAdmission
         protected global::System.Web.UI.WebControls.TextBox MobileText;
 
         /// <summary>
+        /// RequiredFieldValidator14 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator14;
+
+        /// <summary>
         /// RegularExpressionValidator1 control.
         /// </summary>
         /// <remarks>
@@ -94,6 +103,15 @@ namespace CollegeAdmission
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox emailText;
+
+        /// <summary>
+        /// RequiredFieldValidator15 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator15;
 
         /// <summary>
         /// Label1 control.
@@ -123,13 +141,13 @@ namespace CollegeAdmission
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
 
         /// <summary>
-        /// FloatingCity control.
+        /// CityTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FloatingCity;
+        protected global::System.Web.UI.WebControls.TextBox CityTxt;
 
         /// <summary>
         /// RequiredFieldValidator4 control.
@@ -141,13 +159,13 @@ namespace CollegeAdmission
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
 
         /// <summary>
-        /// FloatingPincode control.
+        /// PincodeTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FloatingPincode;
+        protected global::System.Web.UI.WebControls.TextBox PincodeTxt;
 
         /// <summary>
         /// RegularExpressionValidator2 control.
@@ -321,12 +339,12 @@ namespace CollegeAdmission
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator11;
 
         /// <summary>
-        /// SubmitBtn control.
+        /// FormSubmitBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SubmitBtn;
+        protected global::System.Web.UI.WebControls.Button FormSubmitBtn;
     }
 }

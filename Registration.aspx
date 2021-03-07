@@ -47,7 +47,7 @@
                         <div class="col">
                             <div class="row">
                                 <div class="col">
-                                    <asp:TextBox ID="FirstName" runat="server" type="text" CssClass="form-control bg-dark text-white border-3" placeholder="First name" aria-label="First name" MaxLength="20" />
+                                    <asp:TextBox ID="FirstName" runat="server" type="text" CssClass="form-control bg-dark text-white border-3" placeholder="First name" style="display:inline;" aria-label="First name" MaxLength="20" />
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Enter Name*" ControlToValidate="FirstName"></asp:RequiredFieldValidator>
                                 </div>
                                 <div class="col">
@@ -91,6 +91,7 @@
                     <td class="auto-style2">MOBILE NO. :-</td>
                     <td>
                         <asp:TextBox ID="MobileText" runat="server"  CssClass="form-control bg-dark text-white border-3"  type="number" placeholder="Enter Phone No." aria-label="Enter Phone No." style="width: 32%" MaxLength="10" TextMode="Phone" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="MobileText" ErrorMessage="Enter Mobile No.!"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="MobileText" ErrorMessage="Enter Valid Phone No.!" ValidationExpression="^(\+?\d{1,4}[\s-])?(?!0+\s+,?$)\d{10}\s*,?$" ForeColor="#FFCCFF"></asp:RegularExpressionValidator>
                     </td>
                     <td></td>
@@ -104,7 +105,9 @@
                             <label class="text-white" for="floatingInput">Email address</label>
                         </div>
                     </td>
-                    <td></td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ErrorMessage="Enter Email Id..!"></asp:RequiredFieldValidator>
+                    </td>
                 </tr>
 
                 <tr>
@@ -129,10 +132,10 @@
                     <td class="auto-style2">CITY :-</td>
                     <td>
                         <div class="form-floating mb-3">
-                            <asp:TextBox runat="server" type="text" CssClass="form-control bg-dark text-white border-3" ID="FloatingCity" placeholder="city" MaxLength="15"/>                   
+                            <asp:TextBox runat="server" type="text" CssClass="form-control bg-dark text-white border-3" ID="CityTxt" placeholder="city" MaxLength="15"/>                   
                             
                             <label class="text-white" for="floatingInput">City</label>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Enter City" ControlToValidate="FloatingCity"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Enter City" ControlToValidate="CityTxt"></asp:RequiredFieldValidator>
                         </div>
                     </td>
                     <td></td>
@@ -142,9 +145,9 @@
                     <td class="auto-style2">PINCODE :-</td>
                     <td>
                         <div class="form-floating">
-                            <asp:TextBox  runat="server" type="number" Width="120px" class="form-control bg-dark text-white border-3 " ID="FloatingPincode" placeholder="city" MaxLength="6" TextMode="Number"/>
+                            <asp:TextBox  runat="server" type="number" Width="120px" class="form-control bg-dark text-white border-3 " ID="PincodeTxt" placeholder="city" MaxLength="6" TextMode="Number"/>
                             <label class="text-white" for="floatingInput">Pincode</label>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Enter Valid Pincode" ValidationExpression="^\d{3}\s?\d{3}$" ControlToValidate="FloatingPincode"></asp:RegularExpressionValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Enter Valid Pincode" ValidationExpression="^\d{3}\s?\d{3}$" ControlToValidate="PincodeTxt"></asp:RegularExpressionValidator>
                         </div>
                     </td>
                     <td></td>
@@ -227,7 +230,7 @@
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <asp:Button ID="SubmitBtn" runat="server" CssClass="btn btn-outline-primary" Text="Submit" />
+                        <asp:Button ID="FormSubmitBtn" runat="server" CssClass="btn btn-outline-primary" Text="Submit" />
                     </td>
                 </tr>
                 

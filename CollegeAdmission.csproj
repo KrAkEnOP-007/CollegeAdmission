@@ -68,6 +68,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminWelcome.aspx" />
+    <Content Include="App_Data\CollegeDb.mdf" />
+    <Content Include="App_Data\CollegeDb_log.ldf">
+      <DependentUpon>CollegeDb.mdf</DependentUpon>
+    </Content>
     <Content Include="HomePage.aspx" />
     <Content Include="Images\111.jpg" />
     <Content Include="Images\13.jpg" />
@@ -188,9 +192,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
