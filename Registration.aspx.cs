@@ -7,13 +7,18 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.IO;
 using System.Windows;
+using System.Configuration;
 
 namespace CollegeAdmission
 {
     
     public partial class Registration : System.Web.UI.Page
     {
-        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Divyang\Desktop\project\CollegeAdmission\App_Data\CollegeDb.mdf;Integrated Security=True");
+        //SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Divyang\Desktop\project\CollegeAdmission\App_Data\CollegeDb.mdf;Integrated Security=True");
+        // SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\projects\Project\KrAkEnOP-007\CollegeAdmission\App_Data\CollegeDb.mdf;Integrated Security=True");
+        static String CS = ConfigurationManager.ConnectionStrings["conn1"].ConnectionString;
+        SqlConnection conn = new SqlConnection(CS);
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             conn.Open();

@@ -147,6 +147,7 @@
                         <div class="form-floating">
                             <asp:TextBox  runat="server" type="number" Width="120px" class="form-control bg-dark text-white border-3 " ID="PincodeTxt" placeholder="city" MaxLength="6" TextMode="Number"/>
                             <label class="text-white" for="floatingInput">Pincode</label>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" ControlToValidate="PincodeTxt" ErrorMessage="Enter Pincode..!"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Enter Valid Pincode" ValidationExpression="^\d{3}\s?\d{3}$" ControlToValidate="PincodeTxt"></asp:RegularExpressionValidator>
                         </div>
                     </td>
