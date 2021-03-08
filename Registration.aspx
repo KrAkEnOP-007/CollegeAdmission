@@ -106,7 +106,7 @@
                         </div>
                     </td>
                     <td>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ErrorMessage="Enter Email Id..!"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ErrorMessage="Enter Email Id..!" ControlToValidate="emailText"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
 
@@ -230,7 +230,7 @@
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <asp:Button ID="FormSubmitBtn" runat="server" CssClass="btn btn-outline-primary" Text="Submit" />
+                        <asp:Button ID="FormSubmitBtn" runat="server" CssClass="btn btn-outline-primary" Text="Submit" OnClick="FormSubmitBtn_Click" />
                     </td>
                 </tr>
                 
