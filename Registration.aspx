@@ -243,13 +243,17 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td>HSC Marksheet PIC:-</td>
+                    <td>
+                        <asp:FileUpload ID="FileUpload1" runat="server" />
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td>Student Photo :-</td>
+                    <td>
+                        <asp:FileUpload ID="FileUpload2" runat="server" />
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
