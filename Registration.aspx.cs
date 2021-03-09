@@ -32,6 +32,15 @@ namespace CollegeAdmission
                     yyyy.Items.Add(i.ToString());
             }
 
+              SqlCommand com = new SqlCommand("SELECT MAX(id) from RegistrationTable " ,conn);
+            conn.Open();
+            SqlDataReader dr = com.ExecuteReader();
+            if (dr.Read())
+            {
+                string str = dr.GetValue(0).ToString();
+            }
+            conn.Close();
+
         }
 
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
@@ -46,14 +55,15 @@ namespace CollegeAdmission
 
         protected void FormSubmitBtn_Click(object sender, EventArgs e)
         {
-            string query = "INSERT INTO RegistrationTable VALUES( @id,N'@fname' ,N'@lname' ,N'@fathern' , N'@focc' , n'@Mno' , N'@gender' ,N'@Birthdate' , N'@Email' ,N'@address' ,N'@city' , n'@pin', N'@category' , @sscm ,@sscAtt , @hscm , @hscAtt , n'@per' , N'@hscMsheet' , N'@studPic' ) ";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@id" , 5);
+          
+         //   string query = "INSERT INTO RegistrationTable VALUES( @id,N'@fname' ,N'@lname' ,N'@fathern' , N'@focc' , N'@Mno' , N'@gender' ,N'@Birthdate' , N'@Email' ,N'@address' ,N'@city' , N'@pin', N'@category' , @sscm ,@sscAtt , @hscm , @hscAtt , N'@per' , N'@hscMsheet' , N'@studPic' ) ";
+            SqlCommand cmd = new SqlCommand("insert into RegistrationTable values(@id,@fname, @lname, @fathern, @focc, @Mno, @gender, @Birthdate,@Email, @address, @city, @pin, @category, @sscm, @sscAtt, @hscm, @hscAtt, @per, @hscMsheet, @studPic) ", conn);
+            cmd.Parameters.AddWithValue("@id" , 2);
             cmd.Parameters.AddWithValue("@fname" , FirstName.Text.ToString());
             cmd.Parameters.AddWithValue("@lname", LastName.Text.ToString());
             cmd.Parameters.AddWithValue("@fathern", FatherName.Text.ToString());
             cmd.Parameters.AddWithValue("@focc", FatherOcc.Text.ToString());
-            cmd.Parameters.AddWithValue("@Mno", MobileText.Text);
+            cmd.Parameters.AddWithValue("@Mno", MobileText.Text.ToString());
             cmd.Parameters.AddWithValue("@gender", RBgender.SelectedValue.ToString());
        
             cmd.Parameters.AddWithValue("@Birthdate", " " );
@@ -62,24 +72,28 @@ namespace CollegeAdmission
             cmd.Parameters.AddWithValue("@city", CityTxt.Text.ToString());
             cmd.Parameters.AddWithValue("@pin", PincodeTxt.Text.ToString());
             cmd.Parameters.AddWithValue("@Category", CategoryList.Text.ToString());
-            cmd.Parameters.AddWithValue("@sscm", SSCMarks.Text);
-            cmd.Parameters.AddWithValue("@sscAtt", AttemptsTxtSSc.Text);
-            cmd.Parameters.AddWithValue("@hscm", HSCMarksTxt.Text);
-            cmd.Parameters.AddWithValue("@hscAtt", AttemptsTxtHsc.Text);
-            cmd.Parameters.AddWithValue("@per", PercentageTxt.Text);
+            cmd.Parameters.AddWithValue("@sscm", int.Parse(SSCMarks.Text));
+            cmd.Parameters.AddWithValue("@sscAtt", int.Parse(AttemptsTxtSSc.Text));
+            cmd.Parameters.AddWithValue("@hscm", int.Parse(HSCMarksTxt.Text));
+            cmd.Parameters.AddWithValue("@hscAtt", int.Parse(AttemptsTxtHsc.Text));
+            cmd.Parameters.AddWithValue("@per", PercentageTxt.Text.ToString());
             cmd.Parameters.AddWithValue("@hscMsheet", "None");
             cmd.Parameters.AddWithValue("@studPic", "None");
-         
+            try
+            {
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 Response.Write("data entered successfully");
-            
-         
+            }
+            catch
+            {
                 Response.Write("error");
-          
+            }
+            finally
+            {
                 conn.Close();
                 Response.Write("done");
-            
+            }
         
         }
         private int checkValidation()
