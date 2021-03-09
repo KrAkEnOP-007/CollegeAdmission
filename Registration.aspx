@@ -82,7 +82,20 @@
 
                 <tr>
                     <td class="auto-style2">BIRTH DATE :-</td>
-                    <td></td>
+                    <td>
+
+                        <asp:DropDownList ID="dd" runat="server" Height="25px" Width="66px"
+                            OnSelectedIndexChanged="dd_SelectedIndexChanged">
+                        </asp:DropDownList>
+                        &nbsp;
+                        <asp:DropDownList ID="mm" runat="server" Height="25px" Width="72px">
+                        </asp:DropDownList>
+                        &nbsp;
+                        <asp:DropDownList ID="yyyy" runat="server" Height="40px" Width="94px"
+                            OnSelectedIndexChanged="yyyy_SelectedIndexChanged"></asp:DropDownList>
+
+
+                    </td>
                     <td></td>
                 </tr>
 
