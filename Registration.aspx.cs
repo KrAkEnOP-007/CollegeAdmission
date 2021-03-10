@@ -18,7 +18,7 @@ namespace CollegeAdmission
         // SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\projects\Project\KrAkEnOP-007\CollegeAdmission\App_Data\CollegeDb.mdf;Integrated Security=True");
         static String CS = ConfigurationManager.ConnectionStrings["DATAMAIN"].ConnectionString;
         SqlConnection conn = new SqlConnection(CS);
-        
+        string str_NewID;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack == false)
@@ -32,12 +32,13 @@ namespace CollegeAdmission
                     yyyy.Items.Add(i.ToString());
             }
 
-              SqlCommand com = new SqlCommand("SELECT MAX(id) from RegistrationTable " ,conn);
+              SqlCommand com = new SqlCommand("SELECT MAX(id)+1 from RegistrationTable " ,conn);
             conn.Open();
             SqlDataReader dr = com.ExecuteReader();
             if (dr.Read())
             {
-                string str = dr.GetValue(0).ToString();
+                str_NewID = dr.GetValue(0).ToString();
+                Response.Write(str_NewID);
             }
             conn.Close();
 

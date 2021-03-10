@@ -269,7 +269,7 @@
                     <asp:Button runat="server" CssClass="btn btn-danger Mybtn" ID="getMarit" Text="Generate Marit List" OnClick="getMarit_Click" />
                     <asp:Panel ID="MaritListPanel" runat="server" Visible="False">
                         <asp:GridView ID="MaritListGrid" runat="server" CssClass="table-dark"></asp:GridView>
-                        <asp:Button ID="PublishMaritList" runat="server" CssClass="btn btn-warning" style="width:300px; margin:10px;" Text="Publish marit List" />
+                        <asp:Button ID="PublishMaritList" runat="server" CssClass="btn btn-warning" style="width:300px; margin:10px;" Text="Publish marit List" OnClick="PublishMaritList_Click" />
                     </asp:Panel>
                 </ContentTemplate>
 
