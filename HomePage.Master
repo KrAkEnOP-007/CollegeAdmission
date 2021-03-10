@@ -65,7 +65,7 @@
                 </table>
                 <asp:Menu ID="Menu1" runat="server" ForeColor="#7C6F57" Height="56px" 
                     Orientation="Horizontal" 
-                    style="color: #FF0000; font-size: xx-large; font-weight: 700; background-color: black; border: 2px solid pink; border-radius:7px; margin:5px; padding:5px ; display:flex; position:relative;  justify-content:center;" 
+                    style="color: #FF0000; font-size: 25px; font-weight: 700; background-color: black; border: 2px solid pink; border-radius:7px; margin:5px; padding:5px ; display:flex; position:relative;  justify-content:center;" 
                     Width="90%" BackColor="#F7F6F3" DynamicHorizontalOffset="2" 
                     Font-Names="Verdana" Font-Size="0.8em" StaticSubMenuIndent="10px">
                     <StaticSelectedStyle BackColor="#5D7B9D" />
@@ -82,6 +82,7 @@
                         <asp:MenuItem Text="About Us" Value="About Us" NavigateUrl="~/AboutUs.aspx"></asp:MenuItem>
                         <asp:MenuItem Text="Registration" Value="Registration" 
                             NavigateUrl="~/Registration.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Marit List" Value="MaritList" NavigateUrl="~/MaritList.aspx"></asp:MenuItem>
                         <asp:MenuItem Text="Log-In" Value="Log-In" NavigateUrl="~/Login.aspx"></asp:MenuItem>
                     </Items>
                 </asp:Menu>

@@ -39,7 +39,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   <div class="loginBox">
+    <div class="loginBox">
             <asp:Label runat="server" CssClass="loginLbl" ID="LoginLbl">Login</asp:Label>
            <div class="form-floating mb-3">
                <asp:TextBox runat="server" type="email" class="form-control bg-dark text-white border-3" ID="userText" placeholder="name@example.com"/>
