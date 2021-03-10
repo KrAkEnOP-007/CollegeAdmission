@@ -42,7 +42,7 @@
     <div class="loginBox">
             <asp:Label runat="server" CssClass="loginLbl" ID="LoginLbl">Login</asp:Label>
            <div class="form-floating mb-3">
-               <asp:TextBox runat="server" type="email" class="form-control bg-dark text-white border-3" ID="userText" placeholder="name@example.com"/>
+               <asp:TextBox runat="server" type="Text" class="form-control bg-dark text-white border-3" ID="userText" placeholder="name@example.com"/>
                <label class="text-white" for="floatingInput">Email address</label>
            </div>
            <div class="form-floating">
@@ -52,7 +52,7 @@
        <asp:Button runat="server" ID ="LoginBtn" CssClass="btn btn-secondary BtnLogin" Text="Submit"  Width="100px" OnClick="LoginBtn_Click"/>
        
       
-            <asp:Label ID="ErrorLoginTxt" runat="server"></asp:Label>
+            <asp:Label ID="ErrorLoginTxt" runat="server"> .</asp:Label>
        
       
    </div>

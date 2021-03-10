@@ -21,9 +21,9 @@ namespace CollegeAdmission
             String CS = ConfigurationManager.ConnectionStrings["DATAMAIN"].ConnectionString;
             SqlConnection conn = new SqlConnection(CS);
 
-            SqlCommand cmd = new SqlCommand("select COUNT(1) from LoginTBL where User= '"+userText.Text.ToString()+"' and Password = '"+PasswordTxt.Text.ToString()+"'",conn);
+            SqlCommand cmd = new SqlCommand("select COUNT(1) from LoginTBL where UserName= '"+userText.Text.ToString()+"' and Password = '"+PasswordTxt.Text.ToString()+"'",conn);
             conn.Open();
-            int count = Conert.ToInt32(cmd.ExecuteScaler());
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
             if (count==1)
             {
                 Session["username"] = userText.Text;

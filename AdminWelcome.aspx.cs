@@ -54,7 +54,7 @@ namespace CollegeAdmission
 
         protected void PublishMaritList_Click(object sender, EventArgs e)
         {
-             SqlCommand cmd = new SqlCommand("insert into MeritTable(id,FirstName,LastName,HSCPercentage,MobileNo) select id,FirstName,LastName,Percentage,MobileNo from RegistrationTable where Percentage > 60 and Merit_status = 'N'", cn);
+            SqlCommand cmd = new SqlCommand("insert into MeritTable(id,FirstName,LastName,HSCPercentage,MobileNo) select id,FirstName,LastName,Percentage,MobileNo from RegistrationTable where Percentage >= 60", conn);
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();

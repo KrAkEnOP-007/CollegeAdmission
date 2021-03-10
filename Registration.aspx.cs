@@ -57,28 +57,30 @@ namespace CollegeAdmission
 
         protected void FormSubmitBtn_Click(object sender, EventArgs e)
         {
-          
+            string res = MarksheetImgSave();
+            string res2 = StudentImgSave();
+            if (res == "n" || res2 =="n") return;
          //   string query = "INSERT INTO RegistrationTable VALUES( @id,N'@fname' ,N'@lname' ,N'@fathern' , N'@focc' , N'@Mno' , N'@gender' ,N'@Birthdate' , N'@Email' ,N'@address' ,N'@city' , N'@pin', N'@category' , @sscm ,@sscAtt , @hscm , @hscAtt , N'@per' , N'@hscMsheet' , N'@studPic' ) ";
             SqlCommand cmd = new SqlCommand("insert into RegistrationTable values(@id,@fname, @lname, @fathern, @focc, @Mno, @gender, @Birthdate,@Email, @address, @city, @pin, @category, @sscm, @sscAtt, @hscm, @hscAtt, @per, @hscMsheet, @studPic) ", conn);
             cmd.Parameters.AddWithValue("@id" , int.Parse(str_NewID));
-            cmd.Parameters.AddWithValue("@fname" , FirstName.Text.ToString());
-            cmd.Parameters.AddWithValue("@lname", LastName.Text.ToString());
-            cmd.Parameters.AddWithValue("@fathern", FatherName.Text.ToString());
-            cmd.Parameters.AddWithValue("@focc", FatherOcc.Text.ToString());
-            cmd.Parameters.AddWithValue("@Mno", MobileText.Text.ToString());
-            cmd.Parameters.AddWithValue("@gender", RBgender.SelectedValue.ToString());
-       
-            cmd.Parameters.AddWithValue("@Birthdate", " " );
-            cmd.Parameters.AddWithValue("@Email", emailText.Text.ToString());
-            cmd.Parameters.AddWithValue("@address", AddressText.Text.ToString());
-            cmd.Parameters.AddWithValue("@city", CityTxt.Text.ToString());
-            cmd.Parameters.AddWithValue("@pin", PincodeTxt.Text.ToString());
-            cmd.Parameters.AddWithValue("@Category", CategoryList.Text.ToString());
+            cmd.Parameters.AddWithValue("@fname" , FirstName.Text.ToUpper());
+            cmd.Parameters.AddWithValue("@lname", LastName.Text.ToUpper());
+            cmd.Parameters.AddWithValue("@fathern", FatherName.Text.ToUpper());
+            cmd.Parameters.AddWithValue("@focc", FatherOcc.Text.ToUpper());
+            cmd.Parameters.AddWithValue("@Mno", MobileText.Text.ToUpper());
+            cmd.Parameters.AddWithValue("@gender", RBgender.SelectedValue.ToUpper());
+            string Bday = dd.SelectedValue.ToString() + "/" + mm.SelectedValue.ToString() + "/" + yyyy.SelectedValue.ToString();
+            cmd.Parameters.AddWithValue("@Birthdate", Bday );
+            cmd.Parameters.AddWithValue("@Email", emailText.Text.ToUpper());
+            cmd.Parameters.AddWithValue("@address", AddressText.Text.ToUpper());
+            cmd.Parameters.AddWithValue("@city", CityTxt.Text.ToUpper());
+            cmd.Parameters.AddWithValue("@pin", PincodeTxt.Text.ToUpper());
+            cmd.Parameters.AddWithValue("@Category", CategoryList.Text.ToUpper());
             cmd.Parameters.AddWithValue("@sscm", int.Parse(SSCMarks.Text));
             cmd.Parameters.AddWithValue("@sscAtt", int.Parse(AttemptsTxtSSc.Text));
             cmd.Parameters.AddWithValue("@hscm", int.Parse(HSCMarksTxt.Text));
             cmd.Parameters.AddWithValue("@hscAtt", int.Parse(AttemptsTxtHsc.Text));
-            cmd.Parameters.AddWithValue("@per", PercentageTxt.Text.ToString());
+            cmd.Parameters.AddWithValue("@per", PercentageTxt.Text.ToUpper());
             cmd.Parameters.AddWithValue("@hscMsheet", "None");
             cmd.Parameters.AddWithValue("@studPic", "None");
             try
@@ -113,24 +115,74 @@ namespace CollegeAdmission
 
         }
 
-        private void imageselect(){
+        private string MarksheetImgSave(){
              if(HSCmarksheet.HasFile)
              {
                 string fileext = System.IO.Path.GetExtension(HSCmarksheet.FileName);
-                if(fileext.ToLower() != ".jpg" && fileext.ToLower() != ".png" && fileext.ToLower() != ".jpeg" ){
+                if (fileext.ToLower() != ".jpg" && fileext.ToLower() != ".png" && fileext.ToLower() != ".jpeg")
+                {
                     MarkSheetErrorLbl.Text = "Only file with .jpg , .png or . jpeg are allowed";
+                    return "n";
                 }
-             }          
-             else{
-                 int filesize = HSCmarksheet.PostedFile.ContentLength;
-                 if(filesize > 2097152){
-                     MarkSheetErrorLbl.Text = "File is too big";
-                 }
-                 else{
-                     HSCmarksheet.SaveAs(Server.MapPath("~/uploads/marksheets/" + FirstName.Text.Trim() + str_NewID ));
-                     MarkSheetErrorLbl.Text = "File uploaded";
-                 }
-             }
+
+                else
+                {
+                    int filesize = HSCmarksheet.PostedFile.ContentLength;
+                    if (filesize > 2097152)
+                    {
+                        MarkSheetErrorLbl.Text = "File is too big";
+                        return "n";
+                    }
+                    else
+                    {
+                        HSCmarksheet.SaveAs(Server.MapPath("~/images/" + FirstName.Text.Trim() + str_NewID + ".jpg"));
+                        MarkSheetErrorLbl.Text = "File uploaded";
+
+                        return "/ uploads / marksheets / " + FirstName.Text.Trim()+"_Marksheet" + str_NewID + ".jpg";
+                    }
+
+                }
+                }
+            else
+            {
+                return "n";
+            }
+             
+        }
+        private string StudentImgSave()
+        {
+            if (StudentPhoto.HasFile)
+            {
+                string fileext = System.IO.Path.GetExtension(StudentPhoto.FileName);
+                if (fileext.ToLower() != ".jpg" && fileext.ToLower() != ".png" && fileext.ToLower() != ".jpeg")
+                {
+                    StudPicErrorLbl.Text = "Only file with .jpg , .png or . jpeg are allowed";
+                    return "n";
+                }
+
+                else
+                {
+                    int filesize = StudentPhoto.PostedFile.ContentLength;
+                    if (filesize > 2097152)
+                    {
+                        StudPicErrorLbl.Text = "File is too big";
+                        return "n";
+                    }
+                    else
+                    {
+                        StudentPhoto.SaveAs(Server.MapPath("~/uploads/studentPic/" + FirstName.Text.Trim() + str_NewID + ".jpg"));
+                        MarkSheetErrorLbl.Text = "File uploaded";
+
+                        return "~/uploads/studentPic/" + FirstName.Text.Trim() + str_NewID + ".jpg";
+                    }
+
+                }
+            }
+            else
+            {
+                return "n";
+            }
+
         }
 
     }
