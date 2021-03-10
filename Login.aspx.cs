@@ -21,11 +21,12 @@ namespace CollegeAdmission
             String CS = ConfigurationManager.ConnectionStrings["DATAMAIN"].ConnectionString;
             SqlConnection conn = new SqlConnection(CS);
 
-            SqlCommand cmd = new SqlCommand("select * from LoginTBL where User= '"+userText.Text.ToString()+"' and Password = '"+PasswordTxt.Text.ToString()+"'",conn);
+            SqlCommand cmd = new SqlCommand("select COUNT(1) from LoginTBL where User= '"+userText.Text.ToString()+"' and Password = '"+PasswordTxt.Text.ToString()+"'",conn);
             conn.Open();
-            SqlDataReader dr = cmd.ExecuteReader();
-            if (dr.Read())
+            int count = Conert.ToInt32(cmd.ExecuteScaler());
+            if (count==1)
             {
+                Session["username"] = userText.Text;
                 Response.Redirect("AdminWelcome.aspx");
             }
             else

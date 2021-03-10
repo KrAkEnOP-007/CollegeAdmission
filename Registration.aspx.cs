@@ -9,6 +9,7 @@ using System.IO;
 using System.Windows;
 using System.Configuration;
 
+
 namespace CollegeAdmission
 {
     
@@ -59,7 +60,7 @@ namespace CollegeAdmission
           
          //   string query = "INSERT INTO RegistrationTable VALUES( @id,N'@fname' ,N'@lname' ,N'@fathern' , N'@focc' , N'@Mno' , N'@gender' ,N'@Birthdate' , N'@Email' ,N'@address' ,N'@city' , N'@pin', N'@category' , @sscm ,@sscAtt , @hscm , @hscAtt , N'@per' , N'@hscMsheet' , N'@studPic' ) ";
             SqlCommand cmd = new SqlCommand("insert into RegistrationTable values(@id,@fname, @lname, @fathern, @focc, @Mno, @gender, @Birthdate,@Email, @address, @city, @pin, @category, @sscm, @sscAtt, @hscm, @hscAtt, @per, @hscMsheet, @studPic) ", conn);
-            cmd.Parameters.AddWithValue("@id" , 2);
+            cmd.Parameters.AddWithValue("@id" , int.Parse(str_NewID));
             cmd.Parameters.AddWithValue("@fname" , FirstName.Text.ToString());
             cmd.Parameters.AddWithValue("@lname", LastName.Text.ToString());
             cmd.Parameters.AddWithValue("@fathern", FatherName.Text.ToString());
@@ -84,7 +85,7 @@ namespace CollegeAdmission
             {
                 conn.Open();
                 cmd.ExecuteNonQuery();
-                Response.Write("data entered successfully");
+                Response.Write("Your Admission form is submitted successfully");
             }
             catch
             {
@@ -93,7 +94,7 @@ namespace CollegeAdmission
             finally
             {
                 conn.Close();
-                Response.Write("done");
+                // Response.Write("done");
             }
         
         }
@@ -110,6 +111,26 @@ namespace CollegeAdmission
         protected void yyyy_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void imageselect(){
+             if(HSCmarksheet.HasFile)
+             {
+                string fileext = System.IO.Path.GetExtension(HSCmarksheet.FileName);
+                if(fileext.ToLower() != ".jpg" && fileext.ToLower() != ".png" && fileext.ToLower() != ".jpeg" ){
+                    MarkSheetErrorLbl.Text = "Only file with .jpg , .png or . jpeg are allowed";
+                }
+             }          
+             else{
+                 int filesize = HSCmarksheet.PostedFile.ContentLength;
+                 if(filesize > 2097152){
+                     MarkSheetErrorLbl.Text = "File is too big";
+                 }
+                 else{
+                     HSCmarksheet.SaveAs(Server.MapPath("~/uploads/marksheets/" + FirstName.Text.Trim() + str_NewID ));
+                     MarkSheetErrorLbl.Text = "File uploaded";
+                 }
+             }
         }
 
     }

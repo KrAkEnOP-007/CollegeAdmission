@@ -375,22 +375,58 @@ namespace CollegeAdmission
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator11;
 
         /// <summary>
-        /// FileUpload1 control.
+        /// HSCmarksheet control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        protected global::System.Web.UI.WebControls.FileUpload HSCmarksheet;
 
         /// <summary>
-        /// FileUpload2 control.
+        /// MarkSheetErrorLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload2;
+        protected global::System.Web.UI.WebControls.Label MarkSheetErrorLbl;
+
+        /// <summary>
+        /// RequiredFieldValidator17 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator17;
+
+        /// <summary>
+        /// StudentPhoto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload StudentPhoto;
+
+        /// <summary>
+        /// StudPicErrorLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label StudPicErrorLbl;
+
+        /// <summary>
+        /// RequiredFieldValidator18 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator18;
 
         /// <summary>
         /// FormSubmitBtn control.

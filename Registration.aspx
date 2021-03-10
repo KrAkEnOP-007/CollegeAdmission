@@ -245,16 +245,22 @@
                 <tr>
                     <td>HSC Marksheet PIC:-</td>
                     <td>
-                        <asp:FileUpload ID="FileUpload1" runat="server" />
+                        <asp:FileUpload ID="HSCmarksheet" runat="server" Height="26px" Width="232px" /><br />
+                        <asp:Label ID="MarkSheetErrorLbl" runat="server"></asp:Label>
                     </td>
-                    <td>&nbsp;</td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator17" runat="server" ControlToValidate="HSCmarksheet" ErrorMessage="SELECT FILE.....!"></asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>Student Photo :-</td>
                     <td>
-                        <asp:FileUpload ID="FileUpload2" runat="server" />
+                        <asp:FileUpload ID="StudentPhoto" runat="server" Height="25px" Width="239px" /><br />
+                        <asp:Label ID="StudPicErrorLbl" runat="server"></asp:Label>
                     </td>
-                    <td>&nbsp;</td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" ControlToValidate="StudentPhoto" ErrorMessage="SELECT FILE....!"></asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="3">

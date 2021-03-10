@@ -17,6 +17,12 @@ namespace CollegeAdmission
         protected void Page_Load(object sender, EventArgs e)
         {
           ////  MultiView1.ActiveViewIndex = 0;
+          if(Session["username"]!= null){
+
+          }
+          else{
+              Response.Redirect("Login.aspx");
+          }
         }
 
         protected void Marit_Click(object sender, EventArgs e)
