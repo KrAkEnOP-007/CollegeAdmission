@@ -108,8 +108,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>--%>
-    <%-- </div>
+    <div>--%>    <%-- </div>
     </form>
 </body>
 </html>--%>
@@ -183,7 +182,7 @@
                 <tbody>
                     <tr>
                         <td class="auto-style2">
-                            <asp:Image ID="Image4" runat="server" />
+                            <asp:Image ID="StudImage" runat="server" />
                         </td>
                         <td class="auto-style3">
                             <asp:Label ID="FirstName" runat="server" Text="First Name"></asp:Label>

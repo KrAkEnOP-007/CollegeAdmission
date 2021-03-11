@@ -33,7 +33,12 @@ namespace CollegeAdmission
                     yyyy.Items.Add(i.ToString());
             }
 
-              SqlCommand com = new SqlCommand("SELECT MAX(id)+1 from RegistrationTable " ,conn);
+          
+
+        }
+        private void GetNewId()
+        {
+            SqlCommand com = new SqlCommand("SELECT MAX(id)+1 from RegistrationTable ", conn);
             conn.Open();
             SqlDataReader dr = com.ExecuteReader();
             if (dr.Read())
@@ -42,9 +47,7 @@ namespace CollegeAdmission
                 Response.Write(str_NewID);
             }
             conn.Close();
-
         }
-
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
         {
          //  RegularExpressionValidator val = new RegularExpressionValidator
@@ -60,6 +63,7 @@ namespace CollegeAdmission
             string res = MarksheetImgSave();
             string res2 = StudentImgSave();
             if (res == "n" || res2 =="n") return;
+            GetNewId();
          //   string query = "INSERT INTO RegistrationTable VALUES( @id,N'@fname' ,N'@lname' ,N'@fathern' , N'@focc' , N'@Mno' , N'@gender' ,N'@Birthdate' , N'@Email' ,N'@address' ,N'@city' , N'@pin', N'@category' , @sscm ,@sscAtt , @hscm , @hscAtt , N'@per' , N'@hscMsheet' , N'@studPic' ) ";
             SqlCommand cmd = new SqlCommand("insert into RegistrationTable values(@id,@fname, @lname, @fathern, @focc, @Mno, @gender, @Birthdate,@Email, @address, @city, @pin, @category, @sscm, @sscAtt, @hscm, @hscAtt, @per, @hscMsheet, @studPic) ", conn);
             cmd.Parameters.AddWithValue("@id" , int.Parse(str_NewID));
@@ -135,10 +139,10 @@ namespace CollegeAdmission
                     }
                     else
                     {
-                        HSCmarksheet.SaveAs(Server.MapPath("~/images/" + FirstName.Text.Trim() + str_NewID + ".jpg"));
+                       HSCmarksheet.SaveAs(Server.MapPath("~/uploads/marksheets/") + FirstName.Text.Trim()+ "MSHEET"+ str_NewID + ".jpg");
                         MarkSheetErrorLbl.Text = "File uploaded";
 
-                        return "/ uploads / marksheets / " + FirstName.Text.Trim()+"_Marksheet" + str_NewID + ".jpg";
+                        return (Server.MapPath("~/uploads/marksheets/") + FirstName.Text.Trim() + "MSHEET" + str_NewID + ".jpg");
                     }
 
                 }
@@ -170,10 +174,10 @@ namespace CollegeAdmission
                     }
                     else
                     {
-                        StudentPhoto.SaveAs(Server.MapPath("~/uploads/studentPic/" + FirstName.Text.Trim() + str_NewID + ".jpg"));
+                        StudentPhoto.SaveAs(Server.MapPath("~/uploads/marksheets/") + FirstName.Text.Trim() + str_NewID + ".jpg"); 
                         MarkSheetErrorLbl.Text = "File uploaded";
 
-                        return "~/uploads/studentPic/" + FirstName.Text.Trim() + str_NewID + ".jpg";
+                        return (Server.MapPath("~/uploads/marksheets/") + FirstName.Text.Trim() + str_NewID + ".jpg");
                     }
 
                 }

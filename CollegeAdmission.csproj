@@ -72,6 +72,7 @@
     <Content Include="App_Data\CollegeDb_log.ldf">
       <DependentUpon>CollegeDb.mdf</DependentUpon>
     </Content>
+    <Content Include="Extras\WebForm1.aspx" />
     <Content Include="HomePage.aspx" />
     <Content Include="Images\111.jpg" />
     <Content Include="Images\13.jpg" />
@@ -118,10 +119,16 @@
     </Compile>
     <Compile Include="AdminWelcome.aspx.cs">
       <DependentUpon>AdminWelcome.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AdminWelcome.aspx.designer.cs">
       <DependentUpon>AdminWelcome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Extras\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Extras\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>

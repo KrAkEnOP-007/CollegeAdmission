@@ -9,6 +9,29 @@ using System.Configuration;
 
 namespace CollegeAdmission
 {
+     class Binddata
+    {
+        int id;
+        string FirstName;
+        string lastName;
+        string FatherName;
+        string fatherOcc;
+        string MobileNo;
+        string gender;
+        string email;
+        string address;
+        string city;
+        string bdate;
+        string pincode;
+        string category;
+        string sscmarks;
+        string sscAttempts;
+        string hscmarks;
+        string hscAttemots;
+        string percentage;
+        string hscmsheet;
+        string Studpic;
+    }
     public partial class AdminWelcome : System.Web.UI.Page
     {
         static String CS = ConfigurationManager.ConnectionStrings["DATAMAIN"].ConnectionString;
@@ -46,9 +69,13 @@ namespace CollegeAdmission
         {
             MultiView1.ActiveViewIndex = 2;
         }
-
+      
+       
         protected void AdmissionWindow_Click(object sender, EventArgs e)
         {
+            SqlCommand cmd = new SqlCommand("select * from RegistrationTable", conn);
+            SqlDataReader sdr = cmd.ExecuteReader();
+         
             MultiView1.ActiveViewIndex = 0;
         }
 
