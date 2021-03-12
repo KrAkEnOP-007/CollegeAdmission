@@ -258,6 +258,17 @@
                     </tr>
                 </tbody>
             </table>
+            
+                    <asp:FormView ID="FormView1" runat="server" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1">
+
+                        <EditRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
+                        <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
+                        <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" />
+                        <PagerStyle BackColor="#C6C3C6" ForeColor="Black" HorizontalAlign="Right" />
+                        <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
+
+                    </asp:FormView>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
         </asp:View>
         <asp:View runat="server" ID="MaritList">
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -267,7 +278,17 @@
 
                     <asp:Button runat="server" CssClass="btn btn-danger Mybtn" ID="getMarit" Text="Generate Marit List" OnClick="getMarit_Click" />
                     <asp:Panel ID="MaritListPanel" runat="server" Visible="False">
-                        <asp:GridView ID="MaritListGrid" runat="server" CssClass="table-dark"></asp:GridView>
+                        <asp:GridView ID="MaritListGrid" runat="server" CssClass="table-dark" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black">
+                            <FooterStyle BackColor="#CCCCCC" />
+                            <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
+                            <RowStyle BackColor="White" />
+                            <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                            <SortedAscendingHeaderStyle BackColor="#808080" />
+                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                            <SortedDescendingHeaderStyle BackColor="#383838" />
+                        </asp:GridView>
                         <asp:Button ID="PublishMaritList" runat="server" CssClass="btn btn-warning" style="width:300px; margin:10px;" Text="Publish marit List" OnClick="PublishMaritList_Click" />
                     </asp:Panel>
                 </ContentTemplate>

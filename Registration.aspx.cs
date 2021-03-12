@@ -93,6 +93,7 @@ namespace CollegeAdmission
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 Response.Write("<script>alert('Your Admission form is submitted successfully')</script>");
+                Response.Redirect("HomePage.aspx");
             }
             catch
             {
@@ -105,11 +106,7 @@ namespace CollegeAdmission
             }
         
         }
-        private int checkValidation()
-        {
-            // if(FirstName.Text=="" || LastName.Text== "" || RBgender.SelectedIndex == -1 || )
-            return 0;
-        }
+       
         protected void dd_SelectedIndexChanged(object sender, EventArgs e)
         {
 

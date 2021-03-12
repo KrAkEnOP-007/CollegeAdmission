@@ -13,12 +13,13 @@
   <style type="text/css">
       body{
           margin:15px;
+          padding:0px;
       }
         .style1
     {
         width: 89%;
         border-color: #FF0000;
-        background-color: #66FFFF;
+        background-color: blue;
             height: 193px;
         }
         .style2
@@ -44,11 +45,16 @@
         #Menu1{
             background-color:black;
         }
+        #MainForm{
+            box-sizing:content-box;
+            width:100%;
+            
+        }
        
     </style>
 </head>
 <body>
-    <form runat="server">
+    <form runat="server" id ="MainForm">
     <table class="style1">
         <tr>
             <td style="background-color: #CCCCFF" class="style5">
@@ -65,7 +71,7 @@
                 </table>
                 <asp:Menu ID="Menu1" runat="server" ForeColor="#7C6F57" Height="56px" 
                     Orientation="Horizontal" 
-                    style="color: #FF0000; font-size: 25px; font-weight: 700; background-color: black; border: 2px solid pink; border-radius:7px; margin:5px; padding:5px ; display:flex; position:relative;  justify-content:center;" 
+                    style="color: #FF0000; width:100%; font-size: 25px; font-weight: 700; background-color: black; border: 2px solid pink; border-radius:7px; margin:5px; padding:5px ; display:flex; position:relative;  justify-content:center;" 
                     Width="90%" BackColor="#F7F6F3" DynamicHorizontalOffset="2" 
                     Font-Names="Verdana" Font-Size="0.8em" StaticSubMenuIndent="10px">
                     <StaticSelectedStyle BackColor="#5D7B9D" />
@@ -89,7 +95,7 @@
             </td>
         </tr>
         <tr>
-            <td style="background-color: #CCCCFF" class="style5">
+            <td style="background-color: coral" class="style5">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </td>
