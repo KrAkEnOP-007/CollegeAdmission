@@ -44,7 +44,7 @@ namespace CollegeAdmission
             if (dr.Read())
             {
                 str_NewID = dr.GetValue(0).ToString();
-                Response.Write(str_NewID);
+               // Response.Write(str_NewID);
             }
             conn.Close();
         }
@@ -60,10 +60,11 @@ namespace CollegeAdmission
 
         protected void FormSubmitBtn_Click(object sender, EventArgs e)
         {
+            GetNewId();
             string res = MarksheetImgSave();
             string res2 = StudentImgSave();
             if (res == "n" || res2 =="n") return;
-            GetNewId();
+            
          //   string query = "INSERT INTO RegistrationTable VALUES( @id,N'@fname' ,N'@lname' ,N'@fathern' , N'@focc' , N'@Mno' , N'@gender' ,N'@Birthdate' , N'@Email' ,N'@address' ,N'@city' , N'@pin', N'@category' , @sscm ,@sscAtt , @hscm , @hscAtt , N'@per' , N'@hscMsheet' , N'@studPic' ) ";
             SqlCommand cmd = new SqlCommand("insert into RegistrationTable values(@id,@fname, @lname, @fathern, @focc, @Mno, @gender, @Birthdate,@Email, @address, @city, @pin, @category, @sscm, @sscAtt, @hscm, @hscAtt, @per, @hscMsheet, @studPic) ", conn);
             cmd.Parameters.AddWithValue("@id" , int.Parse(str_NewID));
@@ -85,17 +86,17 @@ namespace CollegeAdmission
             cmd.Parameters.AddWithValue("@hscm", int.Parse(HSCMarksTxt.Text));
             cmd.Parameters.AddWithValue("@hscAtt", int.Parse(AttemptsTxtHsc.Text));
             cmd.Parameters.AddWithValue("@per", PercentageTxt.Text.ToUpper());
-            cmd.Parameters.AddWithValue("@hscMsheet", "None");
-            cmd.Parameters.AddWithValue("@studPic", "None");
+            cmd.Parameters.AddWithValue("@hscMsheet", res);
+            cmd.Parameters.AddWithValue("@studPic", res2);
             try
             {
                 conn.Open();
                 cmd.ExecuteNonQuery();
-                Response.Write("Your Admission form is submitted successfully");
+                Response.Write("<script>alert('Your Admission form is submitted successfully')</script>");
             }
             catch
             {
-                Response.Write("error");
+                Response.Write("<script>alert('there was an error Try again..!')</script>");
             }
             finally
             {
@@ -174,10 +175,10 @@ namespace CollegeAdmission
                     }
                     else
                     {
-                        StudentPhoto.SaveAs(Server.MapPath("~/uploads/marksheets/") + FirstName.Text.Trim() + str_NewID + ".jpg"); 
-                        MarkSheetErrorLbl.Text = "File uploaded";
+                        StudentPhoto.SaveAs(Server.MapPath("~/uploads/studentPic") + FirstName.Text.Trim() + "STD" + str_NewID.ToString() + ".jpg"); 
+                        StudPicErrorLbl.Text = "File uploaded";
 
-                        return (Server.MapPath("~/uploads/marksheets/") + FirstName.Text.Trim() + str_NewID + ".jpg");
+                        return (Server.MapPath("~/uploads/studentPic/") + FirstName.Text.Trim() +"STD" + str_NewID + ".jpg");
                     }
 
                 }

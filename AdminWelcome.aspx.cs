@@ -58,7 +58,7 @@ namespace CollegeAdmission
             conn.Open();
           //  SqlCommand cmd = new SqlCommand("insert into MeritTable(id,FirstName,LastName,HSCPercentage,MobileNo) select id,FirstName,LastName,Percentage,MobileNo from RegistrationTable where Percentage > 60 and Merit_status = 'N'", cn);
           //  cmd.ExecuteNonQuery();
-            SqlCommand cmd2 = new SqlCommand("select * from RegistrationTable where Percentage >=60", conn);
+            SqlCommand cmd2 = new SqlCommand("select * from RegistrationTable where Percentage >=60.00", conn);
             MaritListGrid.DataSource = cmd2.ExecuteReader();
             MaritListGrid.DataBind();
             MaritListPanel.Visible = true;
@@ -81,7 +81,7 @@ namespace CollegeAdmission
 
         protected void PublishMaritList_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("insert into MeritTable(id,FirstName,LastName,HSCPercentage,MobileNo) select id,FirstName,LastName,Percentage,MobileNo from RegistrationTable where Percentage >= 60", conn);
+            SqlCommand cmd = new SqlCommand("insert into MaritTable select Id,FirstName,LastName,MobileNo,Percentage from RegistrationTable where Percentage >= 60.00", conn);
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();
