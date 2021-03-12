@@ -6,6 +6,9 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
     <style type="text/css">
+        body{
+            margin:20px;
+        }
         thead {
             align-content: center;
         }
@@ -21,19 +24,6 @@
 
         td {
             height: 40px;
-        }
-
-        .auto-style2 {
-            width: 211px;
-            height: 218px;
-        }
-
-        .auto-style3 {
-            height: 218px;
-        }
-
-        .auto-style4 {
-            width: 211px;
         }
 
         .hoverbtn:hover {
@@ -88,6 +78,23 @@
             left:30%;
             
         }
+        .auto-style5 {
+            
+            border: 2px solid #000080;
+            margin-right: 0px;
+        }
+        .auto-style8 {
+      
+        }
+        .auto-style11 {
+            width: 420px;
+        }
+        .auto-style12 {
+            width: 169px;
+        }
+        .auto-style13 {
+            width: 383px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -112,7 +119,7 @@
     </form>
 </body>
 </html>--%>
-    <div>
+    
         <%-- 
         <asp:Menu ID="Menu1" runat="server" Font-Bold="True" Font-Italic="True" 
                     Height="36px" Orientation="Horizontal" 
@@ -140,7 +147,7 @@
                     </Items>
                 </asp:Menu>
         --%>
-    </div>
+    
 
     <div class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
@@ -171,104 +178,219 @@
 
     <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
         <asp:View runat="server" ID="View1">
-            <table style="width: 80%; margin: 10px; background-color: darkslategray; color: aliceblue;">
-                <thead>
-                    <tr>
-                        <td colspan="3">
-                            <h1 style="text-align: center;">Admission Applications </h1>
-                        </td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="auto-style2">
-                            <asp:Image ID="StudImage" runat="server" />
-                        </td>
-                        <td class="auto-style3">
-                            <asp:Label ID="FirstName" runat="server" Text="First Name"></asp:Label>
-                            <asp:Label ID="lastName" Style="margin-left: 10px;" runat="server" Text="Last Name"></asp:Label>
-                        </td>
-                        <td class="auto-style3">
-                            <asp:Label ID="genderLbl" runat="server" Text="Gender"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style4">
-                            <asp:Label ID="MobileNoLbl" runat="server" Text="Mobile No."></asp:Label>
-                        </td>
-                        <td></td>
-                        <td>
-                            <asp:Label ID="BdayLbl" runat="server" Text="BirthDate"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style4">
-                            <asp:Label ID="addressLbl" runat="server" Text="Address"></asp:Label>
-                        </td>
-                        <td>
-                            <asp:Label ID="CityLabel" runat="server" Text="City"></asp:Label>
-                        </td>
-                        <td>
-                            <asp:Label ID="PincodeLbl" runat="server" Text="Pincode"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style4">&nbsp;</td>
-                        <td>
-                            <asp:Label ID="CategoryLbl" runat="server" Text="Category"></asp:Label>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style4">
-                            <asp:Label ID="SSCLabel" runat="server" Text="SSC Marks"></asp:Label>
-                            &nbsp;:-
-                           <asp:Label ID="SSCMarks" runat="server" Text="SSC MRkS"></asp:Label>
-                        </td>
-                        <td>
-                            <asp:Label ID="SSCAttenpts" runat="server" Text="Attenpts"></asp:Label>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style4">
-                            <asp:Label ID="HSCMarksLbl" runat="server" Text="HSC marks ="></asp:Label>
-                            <asp:Label ID="HSCMarks" runat="server" Text="HSC Mrks"></asp:Label>
-                        </td>
-                        <td>
-                            <asp:Label ID="HSCAttempts" runat="server" Text="Attempts"></asp:Label>
-                        </td>
-                        <td>
-                            <asp:Label ID="perLbl" runat="server" Text="PECENTAGE"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style4"></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style4">
-                            <asp:Button ID="PrvData" runat="server" Text="Previous Data" />
-                        </td>
-                        <td>&nbsp;</td>
-                        <td>
-                            <asp:Button ID="NextDataBtn" runat="server" Text="Next Data" />
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+           
             
-                    <asp:FormView ID="FormView1" runat="server" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1">
+                    <asp:FormView ID="FormView1" runat="server" style="font-size:24px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  " AllowPaging="True" CssClass="auto-style8" DataKeyNames="Id" DataSourceID="SqlDataSource1" Height="999px" Caption="Student Data" CaptionAlign="Top" HeaderText="Student Data" HorizontalAlign="Center">
 
-                        <EditRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
-                        <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
-                        <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" />
-                        <PagerStyle BackColor="#C6C3C6" ForeColor="Black" HorizontalAlign="Right" />
-                        <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
+                        <EditItemTemplate>
+                            Id:
+                            <asp:Label ID="IdLabel1" runat="server" Text='<%# Eval("Id") %>' />
+                            <br />
+                            FIrstName:
+                            <asp:TextBox ID="FIrstNameTextBox" runat="server" Text='<%# Bind("FIrstName") %>' />
+                            <br />
+                            LastName:
+                            <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' />
+                            <br />
+                            FatherName:
+                            <asp:TextBox ID="FatherNameTextBox" runat="server" Text='<%# Bind("FatherName") %>' />
+                            <br />
+                            MobileNo:
+                            <asp:TextBox ID="MobileNoTextBox" runat="server" Text='<%# Bind("MobileNo") %>' />
+                            <br />
+                            Gender:
+                            <asp:TextBox ID="GenderTextBox" runat="server" Text='<%# Bind("Gender") %>' />
+                            <br />
+                            BirthDate:
+                            <asp:TextBox ID="BirthDateTextBox" runat="server" Text='<%# Bind("BirthDate") %>' />
+                            <br />
+                            Email:
+                            <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' />
+                            <br />
+                            City:
+                            <asp:TextBox ID="CityTextBox" runat="server" Text='<%# Bind("City") %>' />
+                            <br />
+                            Category:
+                            <asp:TextBox ID="CategoryTextBox" runat="server" Text='<%# Bind("Category") %>' />
+                            <br />
+                            HSCMarks:
+                            <asp:TextBox ID="HSCMarksTextBox" runat="server" Text='<%# Bind("HSCMarks") %>' />
+                            <br />
+                            Percentage:
+                            <asp:TextBox ID="PercentageTextBox" runat="server" Text='<%# Bind("Percentage") %>' />
+                            <br />
+                            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+                            &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                        </EditItemTemplate>
+
+                        <HeaderStyle HorizontalAlign="Center" />
+
+                        <InsertItemTemplate>
+                            Id:
+                            <asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>' />
+                            <br />
+                            FIrstName:
+                            <asp:TextBox ID="FIrstNameTextBox" runat="server" Text='<%# Bind("FIrstName") %>' />
+                            <br />
+                            LastName:
+                            <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%# Bind("LastName") %>' />
+                            <br />
+                            FatherName:
+                            <asp:TextBox ID="FatherNameTextBox" runat="server" Text='<%# Bind("FatherName") %>' />
+                            <br />
+                            MobileNo:
+                            <asp:TextBox ID="MobileNoTextBox" runat="server" Text='<%# Bind("MobileNo") %>' />
+                            <br />
+                            Gender:
+                            <asp:TextBox ID="GenderTextBox" runat="server" Text='<%# Bind("Gender") %>' />
+                            <br />
+                            BirthDate:
+                            <asp:TextBox ID="BirthDateTextBox" runat="server" Text='<%# Bind("BirthDate") %>' />
+                            <br />
+                            Email:
+                            <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("Email") %>' />
+                            <br />
+                            City:
+                            <asp:TextBox ID="CityTextBox" runat="server" Text='<%# Bind("City") %>' />
+                            <br />
+                            Category:
+                            <asp:TextBox ID="CategoryTextBox" runat="server" Text='<%# Bind("Category") %>' />
+                            <br />
+                            HSCMarks:
+                            <asp:TextBox ID="HSCMarksTextBox" runat="server" Text='<%# Bind("HSCMarks") %>' />
+                            <br />
+                            Percentage:
+                            <asp:TextBox ID="PercentageTextBox" runat="server" Text='<%# Bind("Percentage") %>' />
+                            <br />
+                            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
+                            &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <table cellpadding="2" class="auto-style5">
+                                <tr>
+                                    <td class="auto-style13">Id:-</td>
+                                    <td class="auto-style11">
+                                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style13">Student Picture</td>
+                                    <td class="auto-style11">
+                                        <asp:Image ID="StudImage" runat="server" Height="62px" ImageUrl='<%# Eval("StudentPicture") %>' Width="87px" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style13">First Name</td>
+                                    <td class="auto-style11">
+                                        <asp:Label ID="FirstName" runat="server" Text='<%# Eval("FIrstName") %>'></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style13">Last Name</td>
+                                    <td class="auto-style11">
+                                        <asp:Label ID="lastName" runat="server" Style="margin-left: 10px;" Text='<%# Eval("LastName") %>'></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style13">Gender</td>
+                                    <td class="auto-style11">
+                                        <asp:Label ID="genderLbl" runat="server" Text='<%# Eval("Gender") %>'></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style13">Birthdate</td>
+                                    <td class="auto-style11">
+                                        <asp:Label ID="BdayLbl" runat="server" Text='<%# Eval("BirthDate") %>'></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style13">Category</td>
+                                    <td class="auto-style11">
+                                        <asp:Label ID="CategoryLbl" runat="server" Text='<%# Eval("Category") %>'></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style13">Father&#39;s Name</td>
+                                    <td class="auto-style11">
+                                        <asp:Label ID="Label4" runat="server" Text='<%# Eval("FatherName") %>'></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style13">Father occ</td>
+                                    <td class="auto-style11">
+                                        <asp:Label ID="Label3" runat="server" Text='<%# Eval("FatherOccupation") %>'></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style13">Mobile No</td>
+                                    <td class="auto-style11">
+                                        <asp:Label ID="MobileNoLbl" runat="server" Text='<%# Eval("MobileNo") %>'></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style13">Email</td>
+                                    <td class="auto-style11">
+                                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("Email") %>'></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style13">Address</td>
+                                    <td class="auto-style11">
+                                        <asp:Label ID="addressLbl" runat="server" Text='<%# Eval("Address") %>'></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style13">City</td>
+                                    <td class="auto-style11">
+                                        <asp:Label ID="CityLabel" runat="server" Text='<%# Eval("City") %>'></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style13">Pincode</td>
+                                    <td class="auto-style11">
+                                        <asp:Label ID="PincodeLbl" runat="server" Text='<%# Eval("Pincode") %>'></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style13">SSC Marks</td>
+                                    <td class="auto-style11">
+                                        <asp:Label ID="SSCMarks" runat="server" Text='<%# Eval("SSCmarks") %>'></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style13">SSC Attempts</td>
+                                    <td class="auto-style11">
+                                        <asp:Label ID="SSCAttenpts" runat="server" Text='<%# Eval("AttemptsSSC") %>'></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style13">HSC marks</td>
+                                    <td class="auto-style11">
+                                        <asp:Label ID="HSCMarks" runat="server" Text='<%# Eval("HSCMarks") %>'></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style13">HSC Attempts</td>
+                                    <td class="auto-style11">
+                                        <asp:Label ID="HSCAttempts" runat="server" Text='<%# Eval("AttemptsHSC") %>'></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style13">Percentage</td>
+                                    <td class="auto-style11">
+                                        <asp:Label ID="perLbl" runat="server" Text='<%# Eval("Percentage") %>'></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style13">&nbsp;</td>
+                                    <td class="auto-style11">&nbsp;</td>
+                                </tr>
+                            </table>
+                            <br />
+                        </ItemTemplate>
 
                     </asp:FormView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DATAMAIN %>" SelectCommand="SELECT * FROM [RegistrationTable]"></asp:SqlDataSource>
         </asp:View>
         <asp:View runat="server" ID="MaritList">
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>

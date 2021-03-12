@@ -97,6 +97,7 @@ namespace CollegeAdmission
 
         protected void PublishMaritList_Click(object sender, EventArgs e)
         {
+
             try
             {
                 SqlCommand cmd = new SqlCommand("insert into MaritTable select Id,FirstName,LastName,MobileNo,Percentage from RegistrationTable where Percentage >= 60.00", conn);
