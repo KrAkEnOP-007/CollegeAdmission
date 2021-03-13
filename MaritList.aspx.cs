@@ -24,14 +24,11 @@ namespace CollegeAdmission
         {
             try
             {
-                SqlCommand com = new SqlCommand("select Id , Firstname, LastName , Percentage from Marittable ", conn);
+                SqlCommand com = new SqlCommand("select Id , Firstname, LastName , HSCpercentage from MaritTable ", conn);
                 conn.Open();
                 IDataReader dr = com.ExecuteReader();
                 if (dr.Read())
                 {
-                    GridView1.DataSource = com.ExecuteReader();
-                    GridView1.DataBind();
-                    conn.Close();
                     Panel1.Visible = true;
                 }
                 else

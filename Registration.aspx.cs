@@ -76,7 +76,7 @@ namespace CollegeAdmission
             cmd.Parameters.AddWithValue("@gender", RBgender.SelectedValue.ToUpper());
             string Bday = dd.SelectedValue.ToString() + "/" + mm.SelectedValue.ToString() + "/" + yyyy.SelectedValue.ToString();
             cmd.Parameters.AddWithValue("@Birthdate", Bday );
-            cmd.Parameters.AddWithValue("@Email", emailText.Text.ToUpper());
+            cmd.Parameters.AddWithValue("@Email", emailText.Text.ToString());
             cmd.Parameters.AddWithValue("@address", AddressText.Text.ToUpper());
             cmd.Parameters.AddWithValue("@city", CityTxt.Text.ToUpper());
             cmd.Parameters.AddWithValue("@pin", PincodeTxt.Text.ToUpper());
@@ -172,10 +172,10 @@ namespace CollegeAdmission
                     }
                     else
                     {
-                        StudentPhoto.SaveAs(Server.MapPath("~/uploads/studentPic") + FirstName.Text.Trim() + "STD" + str_NewID.ToString() + ".jpg"); 
+                        StudentPhoto.SaveAs(Server.MapPath("~/uploads/studentPic/") + FirstName.Text.Trim() + "STUD" + str_NewID.ToString() + ".jpg"); 
                         StudPicErrorLbl.Text = "File uploaded";
 
-                        return (Server.MapPath("~/uploads/studentPic/") + FirstName.Text.Trim() +"STD" + str_NewID + ".jpg");
+                        return (Server.MapPath("~/uploads/studentPic/") + FirstName.Text.Trim() +"STUD" + str_NewID.ToString() + ".jpg");
                     }
 
                 }

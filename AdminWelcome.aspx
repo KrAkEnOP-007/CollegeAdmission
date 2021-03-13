@@ -7,7 +7,7 @@
 
     <style type="text/css">
         body{
-            margin:20px;
+            margin:10px;
         }
         thead {
             align-content: center;
@@ -27,7 +27,7 @@
         }
 
         .hoverbtn:hover {
-            font-size: 20px;
+            
             color: green;
             transition: 1s;
         }
@@ -115,11 +115,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>--%>    <%-- </div>
+    <div>--%><%-- </div>
     </form>
 </body>
-</html>--%>
-    
+</html>--%>    
         <%-- 
         <asp:Menu ID="Menu1" runat="server" Font-Bold="True" Font-Italic="True" 
                     Height="36px" Orientation="Horizontal" 
@@ -392,15 +391,27 @@
                     </asp:FormView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DATAMAIN %>" SelectCommand="SELECT * FROM [RegistrationTable]"></asp:SqlDataSource>
         </asp:View>
-        <asp:View runat="server" ID="MaritList">
-            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-
-                <ContentTemplate>
+        <asp:View runat="server" ID="MaritList" >
+          
 
                     <asp:Button runat="server" CssClass="btn btn-danger Mybtn" ID="getMarit" Text="Generate Marit List" OnClick="getMarit_Click" />
-                    <asp:Panel ID="MaritListPanel" runat="server" Visible="False">
-                        <asp:GridView ID="MaritListGrid" runat="server" CssClass="table-dark" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black">
+                    <asp:Button ID="PublishMaritList" runat="server" CssClass="btn btn-warning" OnClick="PublishMaritList_Click" style="width:300px; margin:10px;" Text="Publish marit List" Visible="False" />
+                    <asp:Panel ID="MaritListPanel" runat="server"  Visible="False">
+                        <asp:GridView ID="MaritListGrid" runat="server"  CssClass="table-dark" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource2" PageSize="1" Width="60%">
+                            <Columns>
+                                <asp:BoundField DataField="Id" HeaderText="Id" ReadOnly="True" SortExpression="Id" />
+                                <asp:BoundField DataField="FIrstName" HeaderText="FIrstName" SortExpression="FIrstName" />
+                                <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
+                                <asp:BoundField DataField="FatherName" HeaderText="FatherName" SortExpression="FatherName" />
+                                <asp:BoundField DataField="MobileNo" HeaderText="MobileNo" SortExpression="MobileNo" />
+                                <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender" />
+                                <asp:BoundField DataField="BirthDate" HeaderText="BirthDate" SortExpression="BirthDate" />
+                                <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+                                <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
+                                <asp:BoundField DataField="HSCMarks" HeaderText="HSCMarks" SortExpression="HSCMarks" />
+                                <asp:BoundField DataField="Percentage" HeaderText="Percentage" SortExpression="Percentage" />
+                                <asp:BoundField DataField="Category" HeaderText="Category" SortExpression="Category" />
+                            </Columns>
                             <FooterStyle BackColor="#CCCCCC" />
                             <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
                             <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
@@ -411,12 +422,10 @@
                             <SortedDescendingCellStyle BackColor="#CAC9C9" />
                             <SortedDescendingHeaderStyle BackColor="#383838" />
                         </asp:GridView>
-                        <asp:Button ID="PublishMaritList" runat="server" CssClass="btn btn-warning" style="width:300px; margin:10px;" Text="Publish marit List" OnClick="PublishMaritList_Click" />
+                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:DATAMAIN %>" SelectCommand="SELECT [Id], [FIrstName], [LastName], [FatherName], [MobileNo], [Gender], [BirthDate], [Email], [City], [HSCMarks], [Percentage], [Category] FROM [RegistrationTable]"></asp:SqlDataSource>
+                        
                     </asp:Panel>
-                </ContentTemplate>
-
-            </asp:UpdatePanel>
-
+                
 
         </asp:View>
         <asp:View runat="server" ID="ChangePassword">
@@ -434,7 +443,7 @@
                <asp:TextBox runat="server" type="password" class="form-control bg-dark text-white border-3" ID="NewPassw2" placeholder="Password"/>
                <label class="text-white" for="floatingPassword">Re Enter Password</label>
            </div>
-       <asp:Button runat="server" ID ="LoginBtn" CssClass="btn btn-danger BtnLogin" Text="Change"  Width="100px"/>
+       <asp:Button runat="server" ID ="LoginBtn" CssClass="btn btn-danger BtnLogin" Text="Change"  Width="100px" OnClick="LoginBtn_Click"/>
        
       
    </div>
