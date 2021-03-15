@@ -25,11 +25,18 @@
         td {
             height: 40px;
         }
+        .hoverbtn{
+            color:aliceblue;
+            padding:5px;
+            background-color:transparent;
 
+        }
         .hoverbtn:hover {
             
-            color: green;
+            color: darkblue;
             transition: 1s;
+            background-color:cornflowerblue;
+            border-radius:5px;
         }
 
         li {
@@ -89,9 +96,6 @@
         .auto-style11 {
             width: 420px;
         }
-        .auto-style12 {
-            width: 169px;
-        }
         .auto-style13 {
             width: 383px;
         }
@@ -150,23 +154,20 @@
 
     <div class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand disabled" href="#">Welcome</a>
+            <asp:Button runat="server" ID="WelcomeAdmin" CssClass="navbar-brand hoverbtn" Text="Welcome" BorderStyle="None" OnClick="WelcomeAdmin_Click" />
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <asp:Button runat="server" ID="AdmissionWindow" CssClass="nav-link active hoverbtn" Text="Admission Window" BorderStyle="None" BackColor="Transparent" OnClick="AdmissionWindow_Click" />
+                        <asp:Button runat="server" ID="AdmissionWindow" CssClass="nav-item hoverbtn" Text="Admission Window" BorderStyle="None"  OnClick="AdmissionWindow_Click" />
                     </li>
                     <li class="nav-item">
-                        <asp:Button runat="server" ID="Marit" CssClass="nav-link active hoverbtn" Text="Marit list" BorderStyle="None" BackColor="Transparent" OnClick="Marit_Click" />
+                        <asp:Button runat="server" ID="Marit" CssClass=" hoverbtn" Text="Marit list" BorderStyle="None"  OnClick="Marit_Click" />
                     </li>
                     <li class="nav-item">
-                        <asp:Button runat="server" ID="ChamgePass" CssClass="nav-link active hoverbtn" Text="Change Password" BorderStyle="None" BackColor="Transparent" OnClick="ChamgePass_Click" />
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        <asp:Button runat="server" ID="ChamgePass" CssClass="hoverbtn" Text="Change Password" BorderStyle="None"  OnClick="ChamgePass_Click" />
                     </li>
                 </ul>
             </div>
@@ -175,7 +176,7 @@
 
 
 
-    <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
+    <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="3">
         <asp:View runat="server" ID="View1">
            
             
@@ -275,7 +276,7 @@
                                 <tr>
                                     <td class="auto-style13">Student Picture</td>
                                     <td class="auto-style11">
-                                        <asp:Image ID="StudImage" runat="server" Height="62px" ImageUrl='<%# Eval("StudentPicture") %>' Width="87px" />
+                                        <asp:Image ID="StudImage" runat="server" Height="62px" ImageUrl='<%# Eval("StudentPicture") %>' Width="87px" AlternateText='<%# Eval("StudentPicture") %>' />
                                     </td>
                                 </tr>
                                 <tr>
@@ -391,6 +392,7 @@
                     </asp:FormView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DATAMAIN %>" SelectCommand="SELECT * FROM [RegistrationTable]"></asp:SqlDataSource>
         </asp:View>
+        
         <asp:View runat="server" ID="MaritList" >
           
 
@@ -447,6 +449,11 @@
        
       
    </div>
+        </asp:View>
+        <asp:View runat="server" ID="WelcomeAdminView">
+            <div style="background-color:coral;color:indigo; height:200px;   text-align:center; width:100%; font-size:90px;">
+                <p style="text-shadow: 10px 3px 11px navy;">Welcome Admin</p>
+            </div>
         </asp:View>
     </asp:MultiView>
 </asp:Content>

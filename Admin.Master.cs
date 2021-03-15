@@ -13,5 +13,13 @@ namespace CollegeAdmission
         {
 
         }
+
+        protected void LogOut_Click(object sender, EventArgs e)
+        {
+
+            Session["username"] = null;
+            Response.Redirect("HomePage.aspx");
+
+        }
     }
 }

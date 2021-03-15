@@ -15,6 +15,15 @@ namespace CollegeAdmission
     {
 
         /// <summary>
+        /// WelcomeAdmin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button WelcomeAdmin;
+
+        /// <summary>
         /// AdmissionWindow control.
         /// </summary>
         /// <remarks>
@@ -184,5 +193,14 @@ namespace CollegeAdmission
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button LoginBtn;
+
+        /// <summary>
+        /// WelcomeAdminView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View WelcomeAdminView;
     }
 }

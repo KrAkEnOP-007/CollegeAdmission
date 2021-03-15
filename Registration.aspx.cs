@@ -140,7 +140,7 @@ namespace CollegeAdmission
                        HSCmarksheet.SaveAs(Server.MapPath("~/uploads/marksheets/") + FirstName.Text.Trim()+ "MSHEET"+ str_NewID + ".jpg");
                         MarkSheetErrorLbl.Text = "File uploaded";
 
-                        return (Server.MapPath("~/uploads/marksheets/") + FirstName.Text.Trim() + "MSHEET" + str_NewID + ".jpg");
+                        return "uploads/marksheets/" + FirstName.Text.Trim() + "MSHEET" + str_NewID + ".jpg";
                     }
 
                 }
@@ -175,7 +175,7 @@ namespace CollegeAdmission
                         StudentPhoto.SaveAs(Server.MapPath("~/uploads/studentPic/") + FirstName.Text.Trim() + "STUD" + str_NewID.ToString() + ".jpg"); 
                         StudPicErrorLbl.Text = "File uploaded";
 
-                        return (Server.MapPath("~/uploads/studentPic/") + FirstName.Text.Trim() +"STUD" + str_NewID.ToString() + ".jpg");
+                        return "/uploads/studentPic/" + FirstName.Text.Trim() +"STUD" + str_NewID.ToString() + ".jpg";
                     }
 
                 }
