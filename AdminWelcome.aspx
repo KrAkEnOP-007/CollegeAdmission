@@ -445,6 +445,8 @@
                <asp:TextBox runat="server" type="password" class="form-control bg-dark text-white border-3" ID="NewPassw2" placeholder="Password"/>
                <label class="text-white" for="floatingPassword">Re Enter Password</label>
            </div>
+               <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="NewPassw2" ControlToValidate="NewPassw1" ErrorMessage="Both must be same"></asp:CompareValidator>
+               <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="NewPassw1" ErrorMessage="Enter new password"></asp:RequiredFieldValidator>
        <asp:Button runat="server" ID ="LoginBtn" CssClass="btn btn-danger BtnLogin" Text="Change"  Width="100px" OnClick="LoginBtn_Click"/>
        
       

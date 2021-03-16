@@ -10,7 +10,7 @@
     </asp:ContentPlaceHolder>
     <style type="text/css">
         body{
-            width:80%;
+            width:auto;
             margin:auto;
         }
         #form1
@@ -43,7 +43,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <table class="style1">
+       <table class="style1">
         <tr>
             <td class="style3">
                 <asp:Image ID="Image3" runat="server" Height="141px" 
@@ -59,8 +59,8 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2" style="display:flex; flex-direction:row-reverse; align-items:end;" >
-                <asp:Button runat="server" ID="LogOut" Text="LOG-OUT" CssClass="hover1" style=" border:0px; margin-left:900px;   background-color:transparent; color:navy; font-size:20px; " OnClick="LogOut_Click"  />
+            <td colspan="2" style="display:flex; width:100%; height:50px; flex-direction:row-reverse; align-items:end;overflow:hidden;" >
+                <asp:Button runat="server" ID="LogOut" Text="LOG-OUT" CssClass="hover1" style=" border:0px; position:absolute; right:50px;   background-color:transparent; color:navy; font-size:20px; " OnClick="LogOut_Click"  />
             </td>
         </tr>
         <tr>

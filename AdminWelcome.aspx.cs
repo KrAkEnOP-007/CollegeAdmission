@@ -87,14 +87,15 @@ namespace CollegeAdmission
                 Response.Write("<script>alert('Already Published')</script>");
                 return;
             }
-
+            dr.Close();
+            conn.Close();
 
             try
             {
-                 cmd = new SqlCommand("insert into MaritTable select Id,FirstName,LastName,MobileNo,Percentage from RegistrationTable where Percentage >= 60.00", conn);
+                cmd = new SqlCommand("insert into MaritTable select Id,FirstName,LastName,MobileNo,Percentage from RegistrationTable where Percentage >= 60.00", conn);
                 conn.Open();
                 cmd.ExecuteNonQuery();
-                conn.Close();
+                
                 Response.Write("<script>Inserted in marit database Successfully</script>");
             }
             catch
@@ -117,15 +118,18 @@ namespace CollegeAdmission
             {
                 if (NewPassw1.Text == NewPassw2.Text && NewPassw1.Text != "" && NewPassw2.Text!= "")
                 {
-                    cmd = new SqlCommand("Update LoginTBL set Password = '" + NewPassw1.Text.ToString() + "' where UserName = 'Admin'", conn);
+                    cmd = new SqlCommand("Update LoginTBL set Password = '" + NewPassw1.Text + "' where UserName = 'Admin'", conn);
                    
-                    cmd.ExecuteNonQuery();
+                   int i = cmd.ExecuteNonQuery();
                     conn.Close();
-                    Response.Redirect("Login.aspx");
+                    if (i != 0)
+                    {
+                        Response.Redirect("Login.aspx");
+                    }
                 }
                 else
                 {
-                    Response.Write("There was an error");
+                   /* Response.Write("There was an error");*/
                 }
             }
             else
