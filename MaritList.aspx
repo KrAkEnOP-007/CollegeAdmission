@@ -11,7 +11,6 @@
                 <asp:BoundField DataField="Id" HeaderText="Id" ReadOnly="True" SortExpression="Id" />
                 <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
                 <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
-                <asp:BoundField DataField="MobileNo" HeaderText="MobileNo" SortExpression="MobileNo" />
                 <asp:BoundField DataField="HSCpercentage" HeaderText="HSCpercentage" SortExpression="HSCpercentage" />
             </Columns>
             <FooterStyle BackColor="#CCCCCC" />
@@ -24,6 +23,6 @@
             <SortedDescendingCellStyle BackColor="#CAC9C9" />
             <SortedDescendingHeaderStyle BackColor="#383838" />
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DATAMAIN %>" SelectCommand="SELECT * FROM [MaritTable]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DATAMAIN %>" SelectCommand="SELECT [Id], [FirstName], [LastName], [HSCpercentage] FROM [MaritTable] ORDER BY [HSCpercentage] DESC"></asp:SqlDataSource>
     </asp:Panel>
 </asp:Content>
